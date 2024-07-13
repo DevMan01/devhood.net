@@ -15,9 +15,23 @@ function App() {
     alignItems: 'center'
   };
 
+  // Define the Style for the Box
+  const floatingBoxStyle = {
+    backgroundColor: 'rgba(128, 128, 128, 0.5)', // Grey with semi-transparency
+    borderRadius: '20px', // Rounded corners
+    padding: '20px', // Padding inside the box
+    width: '300px', // Width of the box
+    height: '200px', // Height of the box
+    display: 'flex', // To center content inside the box, if needed
+    justifyContent: 'center', // Center horizontally inside the box
+    alignItems: 'center', // Center vertically inside the box
+  };
+
   return (
     <div style={backgroundStyle}>
-      {/* <div>Hey Jen, thinking of you. I wish we were cuddling.</div> */}
+      <div style={floatingBoxStyle}>
+        {/* <div>Hey Jen, thinking of you. I wish we were cuddling.</div> */}
+      </div>   
     </div>
   );
 }
