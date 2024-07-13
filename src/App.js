@@ -18,13 +18,14 @@ function App() {
   // Define the Style for the Box
   const floatingBoxStyle = {
     backgroundColor: 'rgba(64, 64, 64, 0.5)', // Grey with semi-transparency
-    borderRadius: '20px', // Rounded corners
-    padding: '20px', // Padding inside the box
-    width: '600px', // Width of the box
-    height: '400px', // Height of the box
+    borderRadius: '5vw', // Rounded corners
+    padding: '2vw', // Padding inside the box
+    width: '80vw', // Width of the box
+    height: '50vh', // Height of the box
     display: 'flex', // To center content inside the box, if needed
     justifyContent: 'center', // Center horizontally inside the box
     alignItems: 'center', // Center vertically inside the box
+    boxShadow: '1vw 1vw 3vw rgba(0, 0, 0, 0.5)', // Responsive Shadow to the bottom right
   };
 
   return (
