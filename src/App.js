@@ -9,12 +9,15 @@ function App() {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     height: '100vh',
-    width: '100vw'
+    width: '100vw',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   };
 
   return (
     <div style={backgroundStyle}>
-      <div>Hey Jen, thinking of you. I wish we were cuddling.</div>
+      {/* <div>Hey Jen, thinking of you. I wish we were cuddling.</div> */}
     </div>
   );
 }
