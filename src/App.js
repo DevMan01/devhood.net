@@ -35,7 +35,20 @@ function App() {
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-        {/* <div>Hey Jen, thinking of you. I wish we were cuddling.</div> */}
+        {/* Top Row: Profile Picture */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
+          <img src="/profile.png" alt="Profile" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+        </div>
+        
+        {/* Second Row: Empty for now */}
+        <div style={{ height: '34%' }}>
+          {/* Content will be added here later */}
+        </div>
+        
+        {/* Bottom Row: Placeholder for Icons */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
+          {/* Icons will be added here later */}
+        </div>
       </div>   
     </div>
   );
