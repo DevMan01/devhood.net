@@ -32,26 +32,32 @@ function App() {
     transform: 'translate(-50%, -50%)', // Adjusts the box to be centered correctly
   };
 
+  
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
         {/* Top Row: Profile Picture */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
-          <img src="/profile.png" alt="Profile" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+          <img src="/profile.png" alt="Profile" style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '10px' }} />
         </div>
         
-        {/* Second Row: Empty for now */}
-        <div style={{ height: '34%' }}>
-          {/* Content will be added here later */}
+        {/* Second Row: Placeholder Buttons */}
+        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '34%' }}>
+          <div style={{ width: '20%', height: '50%', backgroundColor: '#ccc', borderRadius: '20px' }}></div>
+          <div style={{ width: '20%', height: '50%', backgroundColor: '#ccc', borderRadius: '20px' }}></div>
+          <div style={{ width: '20%', height: '50%', backgroundColor: '#ccc', borderRadius: '20px' }}></div>
         </div>
         
-        {/* Bottom Row: Placeholder for Icons */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
-          {/* Icons will be added here later */}
+        {/* Bottom Row: Icon Placeholders */}
+        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '33%' }}>
+          <div style={{ width: '15%', aspectRatio: '1 / 1', backgroundColor: '#ccc', borderRadius: '10px' }}></div>
+          <div style={{ width: '15%', aspectRatio: '1 / 1', backgroundColor: '#ccc', borderRadius: '10px' }}></div>
+          <div style={{ width: '15%', aspectRatio: '1 / 1', backgroundColor: '#ccc', borderRadius: '10px' }}></div>
         </div>
       </div>   
     </div>
   );
+
 }
 
 export default App;
