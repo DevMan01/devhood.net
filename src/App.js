@@ -37,7 +37,8 @@ function App() {
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%', borderRadius: '2vw', background: 'linear-gradient(rgba(64, 64, 64, 0.8), transparent)' }}>
-            <p style={{ color: 'white', fontSize: '2vw', textAlign: 'center', padding: '1vw' }}>The website is being re-built. More to come soon.</p>
+            <p style={{ color: 'white', fontSize: '2vw', textAlign: 'center', padding: '1vw' }}>The website is being re-built.</p>
+            <p style={{ color: 'white', fontSize: '2vw', textAlign: 'center', padding: '1vw' }}>More to come soon.</p>
           </div>
       </div>   
     </div>
