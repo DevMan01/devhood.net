@@ -36,12 +36,15 @@ function App() {
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-        {/* Top Row: Profile Picture */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
-          <img src="/profile.png" alt="Profile" style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '10px' }} />
-        </div>
-        
-        {/* Second Row: Placeholder Buttons */}
+        /* Top Row: Profile Picture */
+          {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
+            <img src="/profile.png" alt="Profile" style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '10px' }} />
+          </div> */}
+          
+          {/* Second Row: Placeholder Buttons */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%' }}>
+            <p>The website is being re-built. More to come soon.</p>
+          </div>
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '34%' }}>
           <div style={{ width: '20%', height: '50%', backgroundColor: '#ccc', borderRadius: '20px' }}></div>
           <div style={{ width: '20%', height: '50%', backgroundColor: '#ccc', borderRadius: '20px' }}></div>
