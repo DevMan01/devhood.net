@@ -40,6 +40,17 @@ function App() {
         <div style={{ borderRadius: '5%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start', overflow: 'hidden' }}>
           <img src="/profile.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Authors profile portrait" />          
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+          <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
+            <img src="/linkedin_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="LinkedIn Link" />
+          </a>
+          <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
+            <img src="/reddit_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="Reddit Link" />
+          </a>
+          <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
+            <img src="/github_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="GitHub Link" />
+          </a>
+        </div>
       </div>   
     </div>
   ); 
