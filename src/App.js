@@ -36,9 +36,7 @@ function App() {
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '33%', borderRadius: '2vw', background: 'linear-gradient(rgba(64, 64, 64, 0.8), transparent)' }}>
-            <p style={{ color: 'white', fontSize: '2vw', textAlign: 'center', padding: '1vw' }}>The website is being re-built. <br/> More to come soon.</p>
-          </div>
+        <img src="/profile.png" style={{ borderRadius: '50%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start' }} alt="Profile Picture" />          
       </div>   
     </div>
   ); 
