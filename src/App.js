@@ -10,6 +10,7 @@ function App() {
     backgroundRepeat: 'no-repeat',
     height: '100vh',
     width: '100vw',
+    overflow: 'hidden', // Prevents scrolling
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -36,7 +37,7 @@ function App() {
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-        <img src="/profile.png" style={{ borderRadius: '50%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start' }} />          
+        <img src="/profile.png" style={{ borderRadius: '50%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start' }} alt="Profile picture of author" />          
       </div>   
     </div>
   ); 
