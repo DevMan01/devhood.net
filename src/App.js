@@ -4,7 +4,6 @@ function App() {
   
   // Building a constant to hold the background style
   const backgroundStyle = {
-    backgroundColor: 'black', // Set the background color to black
     backgroundImage: 'url(/homepage.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -15,7 +14,8 @@ function App() {
     overflow: 'hidden', // Prevents scrolling
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'black' // Add a black background color
   };
 
   // Define the Style for the Box
@@ -35,28 +35,38 @@ function App() {
     transform: 'translate(-50%, -50%)', // Adjusts the box to be centered correctly
   };
 
+  const contentStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  };
+
+  const imageStyle = {
+    borderRadius: '5%',
+    width: '10vw',
+    height: '10vw',
+    objectFit: 'contain',
+    alignSelf: 'flex-start',
+    overflow: 'hidden'
+  };
+
+  /*
+  const linkStyle = {
+    margin: '0 1vw'
+  };
+  */
+
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ borderRadius: '5%', width: '10vw', height: '10vw', objectFit: 'contain', alignSelf: 'flex-start', overflow: 'hidden' }}>
+        <div style={contentStyle}>
+          <div style={imageStyle}>
             <img src="/profile.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Authors profile portrait" />          
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignSelf: 'flex-end', alignItems: 'center', marginTop: 'auto' }}>
-            <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
-              <img src="/linkedin_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="LinkedIn Link" />
-            </a>
-            <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
-              <img src="/reddit_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="Reddit Link" />
-            </a>
-            <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
-              <img src="/github_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="GitHub Link" />
-            </a>
           </div>
         </div>
       </div>   
     </div>
-  ); 
+  );
 }
 
 export default App;
