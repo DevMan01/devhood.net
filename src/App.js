@@ -4,6 +4,7 @@ function App() {
   
   // Building a constant to hold the background style
   const backgroundStyle = {
+    backgroundColor: 'black', // Set the background color to black
     backgroundImage: 'url(/homepage.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -34,15 +35,14 @@ function App() {
     transform: 'translate(-50%, -50%)', // Adjusts the box to be centered correctly
   };
 
-  
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ borderRadius: '5%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start', overflow: 'hidden' }}>
+          <div style={{ borderRadius: '5%', width: '10vw', height: '10vw', objectFit: 'contain', alignSelf: 'flex-start', overflow: 'hidden' }}>
             <img src="/profile.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Authors profile portrait" />          
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', alignSelf: 'flex-end', alignItems: 'center', marginTop: 'auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignSelf: 'flex-end', alignItems: 'center', marginTop: 'auto' }}>
             <a href="https://www.google.com" style={{ margin: '0 1vw' }}>
               <img src="/linkedin_logo.png" style={{ width: '3vw', height: '3vw', objectFit: 'cover' }} alt="LinkedIn Link" />
             </a>
