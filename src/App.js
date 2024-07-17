@@ -37,7 +37,7 @@ function App() {
   return (
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
-        <img src="/profile.png" style={{ borderRadius: '50%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start' }} alt="Profile picture of author" />          
+        <img src="/profile.png" style={{ borderRadius: '50%', width: '10vw', height: '10vw', objectFit: 'cover', alignSelf: 'flex-start' }} alt="Authors profile portrait" />          
       </div>   
     </div>
   ); 
