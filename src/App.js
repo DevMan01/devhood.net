@@ -15,7 +15,7 @@ function App() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black' // Add a black background color
+    borderColor: 'black'
   };
 
   // Define the Style for the Box
