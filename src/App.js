@@ -43,6 +43,10 @@ function App() {
   };
 
   const profilePictureStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     borderRadius: '5%',
     width: '10vw',
     height: '10vw',
