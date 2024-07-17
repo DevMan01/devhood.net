@@ -23,8 +23,8 @@ function App() {
     backgroundColor: 'rgba(64, 64, 64, 0.8)', // Grey with semi-transparency
     borderRadius: '5vw', // Rounded corners
     padding: '2vw', // Padding inside the box
-    width: '40vw', // Width of the box
-    height: '50vh', // Height of the box
+    width: '30vw', // Width of the box
+    height: '40vh', // Height of the box
     display: 'flex', // To center content inside the box, if needed
     justifyContent: 'center', // Center horizontally inside the box
     alignItems: 'center', // Center vertically inside the box
@@ -48,7 +48,9 @@ function App() {
     height: '10vw',
     objectFit: 'contain',
     alignSelf: 'flex-start',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    textAlign: 'center',
+    verticalAlign: 'top'
   };
 
   /*
