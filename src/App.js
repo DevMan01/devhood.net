@@ -38,10 +38,11 @@ function App() {
   const contentStyle = {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'flex-start' // Align items at the top of the column
   };
 
-  const imageStyle = {
+  const profilePictureStyle = {
     borderRadius: '5%',
     width: '10vw',
     height: '10vw',
@@ -60,7 +61,7 @@ function App() {
     <div style={backgroundStyle}>
       <div style={floatingBoxStyle}>
         <div style={contentStyle}>
-          <div style={imageStyle}>
+          <div style={profilePictureStyle}>
             <img src="/profile.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Authors profile portrait" />          
           </div>
         </div>
