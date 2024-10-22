@@ -33,6 +33,7 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           production_branch: "main" # The branch to which the app is deployed
+          skip_deploy_on_missing_secrets: "true" # Enabling this so PR's work better in testing.
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
