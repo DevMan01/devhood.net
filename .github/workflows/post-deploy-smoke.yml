@@ -125,6 +125,7 @@ jobs:
               repo: context.repo.repo,
               title: `Auto-rollback: smoke tests failed on ${{ needs.smoke.outputs.sha }}`,
               labels: ['rollback', 'automation'],
+              headers: { 'X-GitHub-Api-Version': '2022-11-28' },
               body: [
                 `Production smoke tests failed after deploying \`${{ needs.smoke.outputs.sha }}\`.`,
                 '',
@@ -146,6 +147,7 @@ jobs:
               repo: context.repo.repo,
               title: `P0 — production smoke failed on ${{ needs.smoke.outputs.sha }}`,
               labels: ['P0', 'incident'],
+              headers: { 'X-GitHub-Api-Version': '2022-11-28' },
               body: [
                 `Production smoke tests failed after the deploy of \`${{ needs.smoke.outputs.sha }}\`.`,
                 '',

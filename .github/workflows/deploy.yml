@@ -85,6 +85,9 @@ jobs:
               inputs: {
                 sha: '${{ needs.build_and_deploy.outputs.sha }}',
               },
+              headers: {
+                'X-GitHub-Api-Version': '2022-11-28',
+              },
             });
 
   close_pr:
