@@ -2,7 +2,6 @@ export interface Photo {
   slug: string;
   title: string;
   location: string;
-  gpsQuery: string;
   camera: string;
   lens: string;
   settings: string;
@@ -31,7 +30,6 @@ export const albums: Album[] = [
         slug: 'predawn-alpenglow',
         title: 'Predawn Alpenglow',
         location: 'Box Elder Peak Trailhead Ridge, Alpine, UT  •  ~9,400 ft',
-        gpsQuery: '40.4512,-111.7728',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 160  ·  1/15 s  ·  f/1.78  ·  6.765 mm',
@@ -41,7 +39,6 @@ export const albums: Album[] = [
         slug: 'sunrise-over-wasatch',
         title: 'Sunrise Over the Wasatch',
         location: 'Box Elder Peak West Ridge, Alpine, UT  •  ~10,200 ft',
-        gpsQuery: '40.4489,-111.7701',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 32  ·  1/1000 s  ·  f/1.78  ·  6.765 mm',
@@ -51,7 +48,6 @@ export const albums: Album[] = [
         slug: 'summit-approach',
         title: 'Summit Approach',
         location: 'Box Elder Peak East Face, Alpine, UT  •  ~10,900 ft',
-        gpsQuery: '40.4471,-111.7682',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 50  ·  1/2000 s  ·  f/1.78  ·  6.765 mm',
@@ -61,7 +57,6 @@ export const albums: Album[] = [
         slug: 'summit-ridge',
         title: 'Summit Ridge',
         location: 'Box Elder Peak Summit, Alpine, UT  •  11,101 ft',
-        gpsQuery: '40.4461,-111.7669',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 50  ·  1/3000 s  ·  f/1.78  ·  6.765 mm',
@@ -71,7 +66,6 @@ export const albums: Album[] = [
         slug: 'box-elder-peak-1',
         title: 'Box Elder Peak',
         location: 'American Fork Canyon, Alpine, UT  •  ~8,600 ft',
-        gpsQuery: '40.4498,-111.7695',
         camera: 'Sony α6000',
         lens: 'Rokinon 12mm f/2.0 CS  ·  12 mm',
         settings: 'ISO 100  ·  1/500 s  ·  f/8',
@@ -81,7 +75,6 @@ export const albums: Album[] = [
         slug: 'lone-peak-range',
         title: 'Lone Peak Range',
         location: 'Lone Peak Wilderness, Alpine, UT  •  ~10,200 ft',
-        gpsQuery: '40.5269,-111.7585',
         camera: 'Sony α6000',
         lens: 'Sony E 55–210mm f/4.5–6.3 OSS  ·  ~100 mm',
         settings: 'ISO 100  ·  1/640 s  ·  f/11',
@@ -91,7 +84,6 @@ export const albums: Album[] = [
         slug: 'silver-lake',
         title: 'Silver Lake',
         location: 'Silver Lake, American Fork Canyon, UT  •  ~8,750 ft',
-        gpsQuery: '40.5301,-111.6447',
         camera: 'Sony α6000',
         lens: 'Rokinon 12mm f/2.0 CS  ·  12 mm',
         settings: 'ISO 100  ·  1/250 s  ·  f/8',

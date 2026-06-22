@@ -152,7 +152,7 @@ function Lightbox({
             <p className="mt-1 text-sm text-white/55">{photo.date}</p>
 
             <dl className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-              <LocationRow location={photo.location} gpsQuery={photo.gpsQuery} />
+              <MetaRow label="Location" value={photo.location} />
               <MetaRow label="Camera"   value={photo.camera}   />
               <MetaRow label="Lens"     value={photo.lens}     />
               <MetaRow label="Settings" value={photo.settings} />
@@ -177,26 +177,7 @@ function MetaRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function LocationRow({ location, gpsQuery }: { location: string; gpsQuery: string }) {
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gpsQuery)}`;
-  return (
-    <div>
-      <dt className="text-white/40 uppercase tracking-widest text-[10px] mb-0.5">Location</dt>
-      <dd className="text-white/80">
-        {location}{' '}
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white/40 hover:text-white/80 underline underline-offset-2 text-xs transition-colors"
-          onClick={e => e.stopPropagation()}
-        >
-          map ↗
-        </a>
-      </dd>
-    </div>
-  );
-}
+
 
 // ─── Album card (the "floating glass square" on the main gallery page) ────────
 function AlbumCard({ album, onOpen }: { album: Album; onOpen: () => void }) {
