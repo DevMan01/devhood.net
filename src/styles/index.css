@@ -6,7 +6,7 @@
   html,
   body,
   #root {
-    height: 100%;
+    min-height: 100%;
   }
 
   html {
@@ -92,6 +92,12 @@
 }
 
 @layer utilities {
+  /* Hide nav chrome when lightbox is in expanded/fullscreen mode */
+  body[data-lightbox-expanded] header,
+  body[data-lightbox-expanded] [data-testid="nav-trigger"] {
+    display: none !important;
+  }
+
   /* Frosted glass card — semi-transparent, blurred, subtly bordered */
   .glass-card {
     background: rgba(23, 26, 32, 0.55);

@@ -39,3 +39,6 @@ yarn-error.log*
 .vscode/
 .idea/
 *.tsbuildinfo
+
+# Original hi-res photo masters (processed outputs live in public/gallery/)
+image_temp/
