@@ -73,7 +73,7 @@ jobs:
 
       - name: Create PR (auto-merge)
         if: steps.changes.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         id: cpr
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
