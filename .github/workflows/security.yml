@@ -1,0 +1,85 @@
+name: Security
+
+# Three independent gates that BLOCK MERGE when issues are found:
+#   1. npm-audit       — fails on high+ npm advisories in production deps
+#   2. osv-scanner-pr  — on PRs: fails when the PR introduces NEW vulnerabilities
+#   3. osv-scanner     — on push/schedule: full scan, reports to Security tab
+#
+# To make these actually block merges, configure branch protection on `main`:
+#   Settings → Branches → Rules for `main` → Require status checks:
+#     - npm-audit
+#     - osv-scanner-pr / scan-pr-vulns
+#     - CodeQL / Analyze (javascript-typescript)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 7 * * *' # daily 07:00 UTC — catches newly-disclosed CVEs
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  npm-audit:
+    name: npm-audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `npm audit` exits non-zero when any advisory at or above the threshold
+      # is found. Pinned to `high` so high+critical block; moderate/low warn.
+      - name: Audit production dependencies (blocks on high+)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Audit full dependency tree (informational only)
+        if: always()
+        run: |
+          if ! npm audit --audit-level=high; then
+            echo "::warning::devDependencies contain advisories — see log"
+          fi
+
+  # Scans the PR diff. Only fails when the PR introduces NEW vulnerabilities,
+  # so unrelated PRs aren't blocked by pre-existing transitive issues.
+  osv-scanner-pr:
+    name: osv-scanner-pr
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
+    with:
+      scan-args: |-
+        --recursive
+        --skip-git
+        ./
+
+  # Full scan on push + schedule. Reports everything (new + existing) to the
+  # Security tab and fails the run if any vuln is present.
+  osv-scanner:
+    name: osv-scanner
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
+    with:
+      scan-args: |-
+        --recursive
+        --skip-git
+        ./

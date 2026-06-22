@@ -1,0 +1,109 @@
+name: Weekly dependency update
+
+# Every Monday: bumps minor/patch deps, runs full CI, and if everything is
+# green, opens a PR and auto-merges it. The deploy + post-deploy-smoke
+# workflows then take over and roll back automatically if anything breaks.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1' # Mondays 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Update dependencies (minor + patch)
+        run: |
+          npm install --no-audit --no-fund
+          # `npm update` respects the semver ranges in package.json — minor/patch only.
+          npm update --no-audit --no-fund
+
+      - name: Show diff summary
+        run: git --no-pager diff --stat || true
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet package.json package-lock.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Typecheck
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run typecheck
+
+      - name: Lint
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run lint
+
+      - name: Unit tests
+        if: steps.changes.outputs.changed == 'true'
+        run: npm test
+
+      - name: Build
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Install Playwright
+        if: steps.changes.outputs.changed == 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run test:e2e
+
+      - name: Create PR (auto-merge)
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        id: cpr
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore(deps): weekly auto-update'
+          committer: 'devhood-bot <devhood-bot@users.noreply.github.com>'
+          author: 'devhood-bot <devhood-bot@users.noreply.github.com>'
+          branch: bot/weekly-update
+          delete-branch: true
+          title: 'chore(deps): weekly auto-update'
+          body: |
+            Automated weekly dependency refresh.
+
+            All checks ran inside this workflow before the PR was opened:
+            - typecheck
+            - lint
+            - unit tests
+            - build
+            - Playwright e2e (desktop + mobile)
+
+            On merge, the deploy + post-deploy-smoke workflows will take over.
+            If smoke tests fail in production, this commit will be reverted
+            automatically.
+          labels: |
+            dependencies
+            automation
+
+      - name: Enable auto-merge
+        if: steps.changes.outputs.changed == 'true' && steps.cpr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          gh pr merge "$PR" --squash --auto --delete-branch

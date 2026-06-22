@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Vite
+/dist
+
+# Playwright
+/playwright-report
+/test-results
+/blob-report
+/.playwright/
+
+# IDE
+.vscode/
+.idea/
+*.tsbuildinfo

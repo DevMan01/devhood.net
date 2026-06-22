@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    /* Solid fallback while the photo loads (and behind the photo in case of
+       any transparency). Matches the dark Tesla-ink tone. */
+    background-color: #171a20;
+  }
+
+  body {
+    @apply font-sans text-white antialiased;
+    font-feature-settings:
+      'cv11',
+      'ss01';
+    -webkit-tap-highlight-color: transparent;
+
+    /* Hero background lives on <body> so we don't have to fight with
+       negative z-index stacking contexts. `background-attachment: fixed`
+       gives the parallax feel on desktop; on iOS Safari it falls back to
+       scroll, which is fine. */
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.15) 40%,
+        rgba(0, 0, 0, 0.65)
+      ),
+      url('/homepage.jpg');
+    background-size: cover, cover;
+    background-position:
+      center,
+      center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    background-color: #171a20;
+  }
+
+  /* Tesla-style universal motion */
+  * {
+    @apply transition-colors duration-tesla ease-tesla;
+  }
+}
+
+@layer utilities {
+  /* Frosted glass card — semi-transparent, blurred, subtly bordered */
+  .glass-card {
+    background: rgba(23, 26, 32, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 30px 80px -20px rgba(0, 0, 0, 0.55);
+  }
+}
