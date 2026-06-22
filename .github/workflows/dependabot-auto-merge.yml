@@ -6,10 +6,15 @@ name: Dependabot auto-merge
 #   2. Enable GitHub's native auto-merge (squash) — GitHub will merge as soon
 #      as the required status checks go green.
 #
-# Only runs for dependabot PRs; human PRs are intentionally excluded.
+# Uses pull_request_target so the GITHUB_TOKEN has write permissions even for
+# Dependabot PRs (which otherwise run with a restricted "Dependabot secret"
+# context that cannot call write APIs).
+#
+# Security: the job only runs when github.actor == 'dependabot[bot]', so no
+# user-controlled code from the PR branch is executed with elevated permissions.
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
@@ -30,7 +35,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Rebase onto latest main so we never merge a stale branch.
-      # This triggers a new CI run on the rebased commit before the merge lands.
+      # This triggers a new CI run on the updated commit before the merge lands.
       - name: Update branch with latest main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,11 +43,11 @@ jobs:
           gh pr update-branch ${{ github.event.pull_request.number }} \
             --repo ${{ github.repository }} \
             --rebase || true
-          # `|| true` — if the branch is already up-to-date the command exits
-          # non-zero; we treat that as success.
+          # `|| true` — gh exits non-zero when the branch is already up-to-date;
+          # treat that as success.
 
-      # Enable squash auto-merge. GitHub will execute the merge automatically
-      # once every required status check passes on the updated branch.
+      # Enable squash auto-merge. GitHub executes the merge automatically once
+      # every required status check passes on the updated branch.
       - name: Enable auto-merge (squash)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
