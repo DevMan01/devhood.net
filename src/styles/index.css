@@ -25,7 +25,11 @@
     /* Hero background lives on <body> so we don't have to fight with
        negative z-index stacking contexts. `background-attachment: fixed`
        gives the parallax feel on desktop; on iOS Safari it falls back to
-       scroll, which is fine. */
+       scroll, which is fine.
+
+       Mobile-first: default to the 1024-wide hero. Larger viewports
+       progressively load the bigger encodings. image-set() lets the
+       browser pick AVIF, then WebP, then JPEG. */
     background-image:
       linear-gradient(
         to bottom,
@@ -33,7 +37,11 @@
         rgba(0, 0, 0, 0.15) 40%,
         rgba(0, 0, 0, 0.65)
       ),
-      url('/homepage.jpg');
+      image-set(
+        url('/img/homepage-1024.avif') type('image/avif'),
+        url('/img/homepage-1024.webp') type('image/webp'),
+        url('/img/homepage-1024.jpg') type('image/jpeg')
+      );
     background-size: cover, cover;
     background-position:
       center,
@@ -41,6 +49,40 @@
     background-repeat: no-repeat, no-repeat;
     background-attachment: fixed, fixed;
     background-color: #171a20;
+  }
+
+  @media (min-width: 1025px) {
+    body {
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.15) 40%,
+          rgba(0, 0, 0, 0.65)
+        ),
+        image-set(
+          url('/img/homepage-1920.avif') type('image/avif'),
+          url('/img/homepage-1920.webp') type('image/webp'),
+          url('/img/homepage-1920.jpg') type('image/jpeg')
+        );
+    }
+  }
+
+  @media (min-width: 1921px) {
+    body {
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.15) 40%,
+          rgba(0, 0, 0, 0.65)
+        ),
+        image-set(
+          url('/img/homepage-2880.avif') type('image/avif'),
+          url('/img/homepage-2880.webp') type('image/webp'),
+          url('/img/homepage-2880.jpg') type('image/jpeg')
+        );
+    }
   }
 
   /* Tesla-style universal motion */

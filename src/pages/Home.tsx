@@ -26,7 +26,7 @@ export default function Home() {
             text-center
           "
         >
-          <Portrait src="/profile.jpeg" alt="Tim Chaffin" />
+          <Portrait basename="profile" alt="Tim Chaffin" />
 
           <header className="space-y-1">
             <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">

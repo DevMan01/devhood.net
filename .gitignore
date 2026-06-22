@@ -25,6 +25,10 @@ yarn-error.log*
 # Vite
 /dist
 
+# Generated responsive image variants (produced by scripts/optimize-images.mjs
+# during `npm run prebuild`). Source masters live in images-src/.
+/public/img/
+
 # Playwright
 /playwright-report
 /test-results
