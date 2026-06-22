@@ -29,7 +29,7 @@ export const albums: Album[] = [
       {
         slug: 'predawn-alpenglow',
         title: 'Predawn Alpenglow',
-        location: 'Box Elder Peak Trailhead Ridge, Alpine, UT  •  ~9,400 ft',
+        location: 'Box Elder Peak Trail, Alpine, UT  •  ~9,400 ft',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 160  ·  1/15 s  ·  f/1.78  ·  6.765 mm',
@@ -56,7 +56,7 @@ export const albums: Album[] = [
       {
         slug: 'summit-ridge',
         title: 'Summit Ridge',
-        location: 'Box Elder Peak Summit, Alpine, UT  •  11,101 ft',
+        location: 'Box Elder Peak Trail, Alpine, UT',
         camera: 'Apple iPhone 16 Pro',
         lens: 'Triple-camera system — wide, f/1.78',
         settings: 'ISO 50  ·  1/3000 s  ·  f/1.78  ·  6.765 mm',
@@ -65,7 +65,7 @@ export const albums: Album[] = [
       {
         slug: 'box-elder-peak-1',
         title: 'Box Elder Peak',
-        location: 'American Fork Canyon, Alpine, UT  •  ~8,600 ft',
+        location: 'Box Elder Peak Trail, Alpine, UT',
         camera: 'Sony α6000',
         lens: 'Rokinon 12mm f/2.0 CS  ·  12 mm',
         settings: 'ISO 100  ·  1/500 s  ·  f/8',
@@ -73,8 +73,8 @@ export const albums: Album[] = [
       },
       {
         slug: 'lone-peak-range',
-        title: 'Lone Peak Range',
-        location: 'Lone Peak Wilderness, Alpine, UT  •  ~10,200 ft',
+        title: 'Viewing Lone Peak Range',
+        location: 'Box Elder Peak Trail, Alpine, UT  •  ~10,200 ft',
         camera: 'Sony α6000',
         lens: 'Sony E 55–210mm f/4.5–6.3 OSS  ·  ~100 mm',
         settings: 'ISO 100  ·  1/640 s  ·  f/11',
@@ -83,7 +83,7 @@ export const albums: Album[] = [
       {
         slug: 'silver-lake',
         title: 'Silver Lake',
-        location: 'Silver Lake, American Fork Canyon, UT  •  ~8,750 ft',
+        location: 'Box Elder Peak Trail, Alpine, UT',
         camera: 'Sony α6000',
         lens: 'Rokinon 12mm f/2.0 CS  ·  12 mm',
         settings: 'ISO 100  ·  1/250 s  ·  f/8',
