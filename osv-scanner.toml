@@ -1,0 +1,17 @@
+# OSV-Scanner suppressions for vulnerabilities that are not exploitable in
+# this project's environment. Each entry MUST include a justification and an
+# expiry date so it gets re-evaluated rather than silently accumulating.
+#
+# Docs: https://google.github.io/osv-scanner/configuration/
+
+[[IgnoredVulns]]
+id = "GHSA-g7r4-m6w7-qqqr"
+# Re-evaluate when we upgrade to Vite 8.x (which ships esbuild >= 0.28.1) or
+# in 6 months, whichever comes first.
+ignoreUntil = 2026-12-21
+reason = """
+esbuild < 0.28.1 dev-server arbitrary file read on Windows (CVSS 2.5, LOW).
+Not exploitable here: devs run macOS, CI runs Ubuntu, and esbuild is a
+build-time devDependency only — never deployed. Production ships only the
+static Vite output to Azure Static Web Apps.
+"""
