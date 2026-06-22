@@ -63,9 +63,10 @@ jobs:
       actions: read
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:
+      # NOTE: osv-scanner v2 removed --skip-git (git scanning is now off by
+      # default; use --include-git-root to opt back in).
       scan-args: |-
         --recursive
-        --skip-git
         ./
 
   # Full scan on push + schedule. Reports everything (new + existing) to the
@@ -81,5 +82,4 @@ jobs:
     with:
       scan-args: |-
         --recursive
-        --skip-git
         ./
