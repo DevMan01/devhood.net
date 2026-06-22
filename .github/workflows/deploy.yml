@@ -73,7 +73,7 @@ jobs:
       - name: Wait for SWA propagation
         run: sleep 45
       - name: Dispatch smoke workflow
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.actions.createWorkflowDispatch({

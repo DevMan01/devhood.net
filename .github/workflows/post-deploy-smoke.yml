@@ -117,7 +117,7 @@ jobs:
 
       - name: Open rollback-completed issue
         if: steps.decide.outputs.action == 'revert'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.create({
@@ -138,7 +138,7 @@ jobs:
 
       - name: Open P0 alert (human commit failed)
         if: steps.decide.outputs.action == 'alert'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.create({
